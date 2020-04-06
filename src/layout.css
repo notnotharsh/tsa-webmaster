@@ -1,0 +1,44 @@
+body {
+  margin: 0px;
+}
+
+header * {
+  display: inline-block;
+  text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+  h1 {
+    width: 200px;
+  }
+  nav {
+    width: calc(100vw - 220px);
+  }
+  nav span {
+    width: calc((100vw - 220px) / 4 - 10px);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  h1 {
+    width: 200px;
+  }
+  nav {
+    width: calc(100vw - 220px);
+  }
+  nav span {
+    width: calc((100vw - 220px) / 4 - 10px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    width: 100vw;
+  }
+  nav {
+    width: 100vw;
+  }
+  nav span {
+    width: 80px;
+  }
+}
