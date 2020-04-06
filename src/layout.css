@@ -6,6 +6,21 @@ header * {
   display: inline-block;
   text-align: center;
 }
+header {
+  width: 100vw;
+  height: 80px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+div#content {
+  width: 100vw;
+  height: calc(100vh - 80px);
+  position: fixed;
+  top: 80px;
+  left: 0px;
+}
 
 @media screen and (min-width: 1000px) {
   h1 {
