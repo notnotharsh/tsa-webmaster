@@ -25,4 +25,5 @@ nav.mobile {
 
 #menuicon {
   z-index: 2;
+  cursor: pointer;
 }

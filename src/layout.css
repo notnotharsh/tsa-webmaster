@@ -57,6 +57,7 @@ header * {
     position: fixed;
     top: 0px;
     left: 16px;
+    width: 22px;
   }
   nav.mobile {
     position: fixed;
