@@ -5,10 +5,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="layout.css" />
-    <script></script>
+    <script type="text/javascript" src="script.js"></script>
   </head>
   <body>
     <header>
+      <h1 class="mobile" id="menuicon" onclick="changeNav()">&#9776;</h1>
       <h1>Lightwave</h1>
       <nav>
         <span style="float: left;">Vehicles</span>
@@ -16,6 +17,14 @@
         <span style="float: left;">Shop</span>
         <span style="float: right;">Mission</span>
         <span style="float: right;">News</span>
+      </nav>
+      <nav class="mobile">
+        <h2>Go to...</h2>
+        <p>Vehicles</p>
+        <p>Charging</p>
+        <p>Shop</p>
+        <p>Mission</p>
+        <p>News</p>
       </nav>
     </header>
   </body>

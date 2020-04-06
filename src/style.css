@@ -4,7 +4,7 @@
   vertical-align: middle;
 }
 
-h1 {
+h1, h2 {
   font-weight: 100;
 }
 
@@ -14,4 +14,15 @@ nav span {
   background-color: #eeeeee;
   height: 2em;
   line-height: 2em;
+}
+
+nav.mobile {
+  background-color: #eeeeee;
+  overflow-x: hidden;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+#menuicon {
+  z-index: 2;
 }

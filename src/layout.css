@@ -7,7 +7,7 @@ header * {
   text-align: center;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   h1 {
     width: 200px;
   }
@@ -16,6 +16,9 @@ header * {
   }
   nav span {
     width: calc((((100vw - 220px) / 5 - 8px) + 148px) / 2);
+  }
+  .mobile {
+    display: none;
   }
 }
 
@@ -29,13 +32,40 @@ header * {
   nav span {
     width: calc((100vw - 220px) / 5 - 8px);
   }
+  .mobile {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {
   h1 {
-    width: 100vw;
+    float: right;
+    width: calc(100vw - 41px);
+  }
+  .bigger {
+    display: none;
   }
   nav {
     display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  #menuicon {
+    display: block;
+    text-align: left;
+    position: fixed;
+    top: 0px;
+    left: 16px;
+  }
+  nav.mobile {
+    position: fixed;
+    height: 100vh;
+    width: 0px;
+    top: 0px;
+    left: 0px;
+  }
+  nav * {
+    display: block;
   }
 }
