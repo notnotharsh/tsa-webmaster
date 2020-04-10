@@ -27,10 +27,10 @@ div#content {
     width: 200px;
   }
   nav {
-    width: calc(100vw - 220px);
+    width: calc(100vw - 216px);
   }
   nav span {
-    width: calc((((100vw - 220px) / 5 - 8px) + 148px) / 2);
+    width: calc((((100vw - 216px) / 7 - 8px) + 104px) / 2);
   }
   .mobile {
     display: none;
@@ -42,17 +42,17 @@ div#content {
     width: 200px;
   }
   nav {
-    width: calc(100vw - 220px);
+    width: calc(100vw - 216px);
   }
   nav span {
-    width: calc((100vw - 220px) / 5 - 8px);
+    width: calc((100vw - 216px) / 7 - 8px);
   }
   .mobile {
     display: none;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
   h1 {
     float: right;
     width: calc(100vw - 41px);
