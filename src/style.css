@@ -1,7 +1,12 @@
 * {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
+  color: #dddddd;
   vertical-align: middle;
+}
+
+body {
+  background-color: #222222;
 }
 
 h1, h2 {
@@ -11,13 +16,13 @@ h1, h2 {
 nav span {
   padding: 2px;
   margin: 2px;
-  background-color: #eeeeee;
+  background-color: #444444;
   height: 2em;
   line-height: 2em;
 }
 
 nav.mobile {
-  background-color: #eeeeee;
+  background-color: #444444;
   overflow-x: hidden;
   transition: 0.3s;
   z-index: 1;
@@ -30,4 +35,17 @@ nav.mobile {
 
 div#content {
   overflow-y: scroll;
+  scrollbar-width: thin;
+  z-index: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: #ddd;
+}​
