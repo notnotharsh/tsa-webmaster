@@ -95,7 +95,10 @@ div#content * {
     top: 0px;
     left: 0px;
   }
-  nav * {
+  nav.mobile * {
     display: block;
+  }
+  nav.mobile a {
+    text-align: left;
   }
 }
