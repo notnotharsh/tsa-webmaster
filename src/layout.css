@@ -22,9 +22,23 @@ div#content {
   left: 30px;
 }
 
+div.newsArticle {
+  text-align: center;
+  margin: 50px;
+
+}
+div.fullArticle{
+  text-align: center;
+  margin: 50px;
+}
+
 div#content * {
   padding: 4px;
   margin: 8px;
+}
+h2#title{
+  text-align: center;
+  padding-top: 30px;
 }
 
 @media screen and (min-width: 1000px) {

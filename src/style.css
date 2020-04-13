@@ -20,7 +20,13 @@ nav span {
   height: 2em;
   line-height: 2em;
 }
+div.newsArticle {
+  padding: 10px;
+}
 
+div.fullArticle{
+  padding: 10px;
+}
 nav.mobile {
   background-color: #444444;
   overflow-x: hidden;
