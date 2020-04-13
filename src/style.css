@@ -12,26 +12,26 @@ body {
 h1, h2 {
   font-weight: 100;
 }
-nav > a, .dropdown {
+
+nav a, .dropdown {
   background-color: #444444;
   height: 2em;
   line-height: 2em;
 }
-#title{
-  background-color: green;
-}
-/* div.fullArticle{
-  padding: 10px;
-} */
+
 nav.mobile {
   background-color: #444444;
   overflow-x: hidden;
   transition: 0.3s;
-  z-index: 1;
+  z-index: 2;
+}
+
+nav.mobile * {
+  z-index: 2;
 }
 
 #menuicon {
-  z-index: 2;
+  z-index: 3;
   cursor: pointer;
 }
 
@@ -45,6 +45,20 @@ a {
   text-decoration: none;
 }
 
+#slide {
+  background-color: #666666;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+#slide a {
+  background-color: transparent;
+}
+
+nav.mobile img {
+  cursor: pointer;
+}
+
 .dropdown {
   transition: 0.3s;
 }
@@ -53,5 +67,5 @@ a {
     width: 6px;
 }
 ::-webkit-scrollbar-thumb {
-    background: #ddd;
+    background: #dddddd;
 }​

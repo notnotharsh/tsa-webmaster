@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="layout.css" />
     <script type="text/javascript" src="script.js"></script>
   </head>
-  <body>
+  <body onresize="orderNav()">
     <header>
       <h1 class="mobile" id="menuicon" onclick="changeNav()">&#9776;</h1>
       <h1>Lightwave</h1>
@@ -35,18 +35,17 @@
         </div>
       </nav>
       <nav class="mobile">
+        <div id="slide"></div>
         <h2>Go to...</h2>
-        <a href="vehicles/">Vehicles</a>
-        <a href="charging/">Charging</a>
-        <a href="mission/">Mission</a>
-        <a href="news/">News</a>
-        <a href="account/register.html">Register</a>
-        <a href="account/login.html">Log In</a>
-        <a href="shop/">Shop</a>
+        <div><a href="vehicles/">Vehicles</a><img src="img/right.png" onclick="slideNav(0)" /></div>
+        <div><a href="charging/">Charging</a><img src="img/right.png" onclick="slideNav(1)" /></div>
+        <div><a href="mission/">Mission</a></div>
+        <div><a href="news/">News</a></div>
+        <div><a href="account/register.html">Register</a></div>
+        <div><a href="account/login.html">Log In</a></div>
+        <div><a href="shop/">Shop</a></div>
       </nav>
     </header>
-    <div id="content">
-      <p>Welcome to our homepage</p>
-    </div>
+    <div id="content"></div>
   </body>
 </html>

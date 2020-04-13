@@ -15,42 +15,16 @@ header {
 }
 
 div#content {
-  width: 90%;
+  width: 100vw;
   height: calc(100vh - 80px);
   position: fixed;
-  background: white;
   top: 80px;
-  right: 30px;
-  left: 30px;
-  z-index: 1;
+  left: 0px;
 }
-
-.newsArticle {
-    width:50%;
-    /* margin:auto; */
-    background: red;
-    z-index: 2;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    display: block;
-}
-
-/* div.fullArticle{
-  text-align: center;
-  margin: 50px;
-} */
 
 div#content * {
-  /* padding: 4px; */
-}
-#title{
-  text-align: center;
-  /* width:90%; */
-  /* margin:auto; */
-  z-index: 3;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  display: block;
+  padding: 4px;
+  margin: 8px;
 }
 
 @media screen and (min-width: 1000px) {
@@ -158,19 +132,41 @@ div#content * {
     left: 16px;
     width: 22px;
   }
-  nav.mobile {
+  nav.mobile, #slide {
     position: fixed;
     height: 100vh;
     width: 0px;
     top: 0px;
+  }
+  nav.mobile {
     left: 0px;
   }
-  nav.mobile * {
-    display: block;
+  #slide {
+    left: 0px;
+  }
+  nav.mobile div {
+    height: 32px;
+    width: 100%;
+    vertical-align: middle;
+  }
+  nav.mobile div * {
+    display: inline-block;
+  }
+  nav.mobile img {
+    display: inline;
+    float: right;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
   }
   nav.mobile a {
+    float: left;
     text-align: left;
+    width: calc(100% - 50px);
+  }
+  #slide a {
     width: 100%;
+    padding: 0px 8px;
   }
   .dropdown {
     display: none;
