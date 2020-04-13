@@ -12,10 +12,7 @@ body {
 h1, h2 {
   font-weight: 100;
 }
-
-nav span {
-  /* padding: 2px; */
-  /* margin: 2px; */
+nav > a, .dropdown {
   background-color: #444444;
   height: 2em;
   line-height: 2em;
@@ -46,6 +43,10 @@ div#content {
 
 a {
   text-decoration: none;
+}
+
+.dropdown {
+  transition: 0.3s;
 }
 
 ::-webkit-scrollbar {

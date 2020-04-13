@@ -8,28 +8,41 @@
     <link rel="stylesheet" href="layout.css" />
     <script type="text/javascript" src="script.js"></script>
   </head>
-  <body>
+  <body onresize="orderNav()">
     <header>
       <h1 class="mobile" id="menuicon" onclick="changeNav()">&#9776;</h1>
       <h1>Lightwave</h1>
       <nav>
-        <span class="left dropdowner"><a href ="vehicles/">Vehicles</a></span>
-        <span class="left dropdowner"><a href ="charging/">Charging</a></span>
-        <span class="left"><a href ="mission/index.html">Mission</a></span>
-        <span class="left"><a href ="news/index.html">News</a></span>
-        <span class="right"><a href ="account/register.html">Register</a></span>
-        <span class="right"><a href ="account/login.html">Log In</a></span>
-        <span class="right"><a href ="shop/">Shop</a></span>
+        <a href ="vehicles/" class="left dropdowner" onmouseover="dropdown(0)">Vehicles</a>
+        <a href ="charging/" class="left dropdowner" onmouseover="dropdown(1)">Charging</a>
+        <a href="mission/" class="left">Mission</a>
+        <a href="news/" class="left">News</a>
+        <a href="account/register.html" class="right">Register</a>
+        <a href="account/login.html" class="right">Log In</a>
+        <a href="shop/" class="right">Shop</a>
+        <div class="dropdown forzero">
+          <a href="vehicles/alpine.html">Alpine</a>
+          <a href="vehicles/boulder.html">Boulder</a>
+          <a href="vehicles/dune.html">Dune</a>
+          <a href="vehicles/glacier.html">Glacier</a>
+          <a href="vehicles/icicle.html">Icicle</a>
+          <a href="vehicles/neptune.html">Neptune</a>
+          <a href="vehicles/taiga.html">Taiga</a>
+        </div>
+        <div class="dropdown forone">
+          <a href="charging/chargers.html">Chargers</a>
+          <a href="charging/maps.html">Map</a>
+        </div>
       </nav>
       <nav class="mobile">
         <h2>Go to...</h2>
-        <p><a href ="vehicles/">Vehicles</a></p>
-        <p><a href ="charging/">Charging</a></p>
-        <p><a href ="mission/index.html">Mission</a></p>
-        <p><a href ="news/index.html">News</a></p>
-        <p><a href ="account/register.html">Register</a></p>
-        <p><a href ="account/login.html">Log In</a></p>
-        <p><a href ="shop/">Shop</a></p>
+        <a href="vehicles/">Vehicles</a>
+        <a href="charging/">Charging</a>
+        <a href="mission/">Mission</a>
+        <a href="news/">News</a>
+        <a href="account/register.html">Register</a>
+        <a href="account/login.html">Log In</a>
+        <a href="shop/">Shop</a>
       </nav>
     </header>
     <div id="content">

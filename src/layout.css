@@ -60,8 +60,10 @@ div#content * {
   nav {
     width: calc(100vw - 210px);
   }
-  nav span {
+  nav > a, .dropdown > a {
     width: calc((((100vw - 216px) / 7 - 8px) + 104px) / 2);
+    padding: 2px;
+    margin: 2px;
   }
   .mobile {
     display: none;
@@ -72,6 +74,26 @@ div#content * {
   nav .right {
     float: right;
   }
+  .dropdown {
+    width: calc(((((100vw - 216px) / 7 - 8px) + 104px) / 2) + 4px);
+    margin: 0px;
+    padding: 0px;
+    position: fixed;
+    overflow: hidden;
+    height: 0px;
+    top: 62px;
+  }
+  .dropdown a {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+  }
+  .forzero {
+    left: 206px;
+  }
+  .forone {
+    left: calc(((((100vw - 216px) / 7 - 8px) + 104px) / 2) + 214px);
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -81,8 +103,10 @@ div#content * {
   nav {
     width: calc(100vw - 210px);
   }
-  nav span {
+  nav > a, .dropdown > a {
     width: calc((100vw - 216px) / 7 - 8px);
+    padding: 2px;
+    margin: 2px;
   }
   .mobile {
     display: none;
@@ -92,6 +116,26 @@ div#content * {
   }
   nav .right {
     float: left;
+  }
+  .dropdown {
+    width: calc(((100vw - 216px) / 7 - 8px) + 4px);
+    margin: 0px;
+    padding: 0px;
+    position: fixed;
+    overflow: hidden;
+    height: 0px;
+    top: 62px;
+  }
+  .dropdown a {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+  }
+  .forzero {
+    left: 206px;
+  }
+  .forone {
+    left: calc(((100vw - 216px) / 7 - 8px) + 214px);
   }
 }
 
@@ -126,5 +170,9 @@ div#content * {
   }
   nav.mobile a {
     text-align: left;
+    width: 100%;
+  }
+  .dropdown {
+    display: none;
   }
 }
