@@ -12,13 +12,17 @@ body {
 h1, h2 {
   font-weight: 100;
 }
-
 nav > a, .dropdown {
   background-color: #444444;
   height: 2em;
   line-height: 2em;
 }
-
+#title{
+  background-color: green;
+}
+/* div.fullArticle{
+  padding: 10px;
+} */
 nav.mobile {
   background-color: #444444;
   overflow-x: hidden;

@@ -15,16 +15,42 @@ header {
 }
 
 div#content {
-  width: 100vw;
+  width: 90%;
   height: calc(100vh - 80px);
   position: fixed;
+  background: white;
   top: 80px;
-  left: 0px;
+  right: 30px;
+  left: 30px;
+  z-index: 1;
 }
 
+.newsArticle {
+    width:50%;
+    /* margin:auto; */
+    background: red;
+    z-index: 2;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: block;
+}
+
+/* div.fullArticle{
+  text-align: center;
+  margin: 50px;
+} */
+
 div#content * {
-  padding: 4px;
-  margin: 8px;
+  /* padding: 4px; */
+}
+#title{
+  text-align: center;
+  /* width:90%; */
+  /* margin:auto; */
+  z-index: 3;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: block;
 }
 
 @media screen and (min-width: 1000px) {
