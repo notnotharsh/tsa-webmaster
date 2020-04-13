@@ -15,30 +15,42 @@ header {
 }
 
 div#content {
-  width: 100vw;
+  width: 90%;
   height: calc(100vh - 80px);
   position: fixed;
+  background: white;
   top: 80px;
+  right: 30px;
   left: 30px;
+  z-index: 1;
 }
 
-div.newsArticle {
-  text-align: center;
-  margin: 50px;
+.newsArticle {
+    width:50%;
+    /* margin:auto; */
+    background: red;
+    z-index: 2;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: block;
+}
 
-}
-div.fullArticle{
+/* div.fullArticle{
   text-align: center;
   margin: 50px;
-}
+} */
 
 div#content * {
-  padding: 4px;
-  margin: 8px;
+  /* padding: 4px; */
 }
-h2#title{
+#title{
   text-align: center;
-  padding-top: 30px;
+  /* width:90%; */
+  /* margin:auto; */
+  z-index: 3;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: block;
 }
 
 @media screen and (min-width: 1000px) {

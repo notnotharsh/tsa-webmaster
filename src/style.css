@@ -14,19 +14,18 @@ h1, h2 {
 }
 
 nav span {
-  padding: 2px;
-  margin: 2px;
+  /* padding: 2px; */
+  /* margin: 2px; */
   background-color: #444444;
   height: 2em;
   line-height: 2em;
 }
-div.newsArticle {
-  padding: 10px;
+#title{
+  background-color: green;
 }
-
-div.fullArticle{
+/* div.fullArticle{
   padding: 10px;
-}
+} */
 nav.mobile {
   background-color: #444444;
   overflow-x: hidden;
