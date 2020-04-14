@@ -69,3 +69,6 @@ nav.mobile img {
 ::-webkit-scrollbar-thumb {
     background: #dddddd;
 }​
+#title{
+  z-index: 0;
+}
