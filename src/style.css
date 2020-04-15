@@ -35,11 +35,11 @@ nav.mobile * {
   cursor: pointer;
 }
 
-/* div#content {
+div#content {
   overflow-y: scroll;
   scrollbar-width: thin;
   z-index: 0;
-} */
+}
 
 a {
   text-decoration: none;
