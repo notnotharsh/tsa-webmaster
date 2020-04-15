@@ -70,15 +70,15 @@ function slideNav(index) {
   var images = document.getElementsByTagName("nav")[1].getElementsByTagName("img");
   if ((getComputedStyle(document.getElementById("slide")).width == "0px") || (document.getElementsByTagName("nav")[1].getElementsByTagName("img")[index].src.endsWith("img/right.png"))) {
     for (var i = 0; i < images.length; i++) {
-      images[i].src = "img/right.png";
+      images[i].src = document.getElementsByTagName("nav")[1].id + "/img/right.png";
     }
-    document.getElementsByTagName("nav")[1].getElementsByTagName("img")[index].src = "img/left.png";
+    document.getElementsByTagName("nav")[1].getElementsByTagName("img")[index].src = document.getElementsByTagName("nav")[1].id + "/img/left.png";
     document.getElementById("slide").style.left = "200px";
     document.getElementById("slide").style.width = "100px";
     document.getElementById("slide").innerHTML = document.getElementsByTagName("nav")[0].getElementsByClassName("dropdown")[index].innerHTML;
   } else {
     for (var i = 0; i < images.length; i++) {
-      images[i].src = "img/right.png";
+      images[i].src = document.getElementsByTagName("nav")[1].id + "/img/right.png";
     }
     document.getElementById("slide").style.width = "0px";
     document.getElementById("slide").style.left = "0px";

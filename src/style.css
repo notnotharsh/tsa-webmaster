@@ -9,6 +9,10 @@ body {
   background-color: #222222;
 }
 
+header {
+  z-index: 1;
+}
+
 h1, h2 {
   font-weight: 100;
 }
@@ -23,10 +27,6 @@ nav.mobile {
   background-color: #444444;
   overflow-x: hidden;
   transition: 0.3s;
-  z-index: 2;
-}
-
-nav.mobile * {
   z-index: 2;
 }
 
@@ -48,7 +48,6 @@ a {
 #slide {
   background-color: #666666;
   transition: 0.3s;
-  z-index: 1;
 }
 
 #slide a {
@@ -69,5 +68,3 @@ nav.mobile img {
 ::-webkit-scrollbar-thumb {
     background: #dddddd;
 }​
-div #title *{
-}
