@@ -30,10 +30,6 @@ nav.mobile {
   z-index: 2;
 }
 
-nav.mobile * {
-  z-index: 2;
-}
-
 #menuicon {
   z-index: 3;
   cursor: pointer;
@@ -52,7 +48,6 @@ a {
 #slide {
   background-color: #666666;
   transition: 0.3s;
-  z-index: 1;
 }
 
 #slide a {
