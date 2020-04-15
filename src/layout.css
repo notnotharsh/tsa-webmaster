@@ -27,6 +27,12 @@ div#content * {
   margin: 8px;
 }
 
+div #title * {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
 @media screen and (min-width: 1000px) {
   h1 {
     width: 200px;
