@@ -72,13 +72,13 @@ function slideNav(index) {
     for (var i = 0; i < images.length; i++) {
       images[i].src = document.getElementsByTagName("nav")[1].id + "/img/right.png";
     }
-    document.getElementsByTagName("nav")[1].getElementsByTagName("img")[index].src = document.getElementsByTagName("nav")[1].id + "img/left.png";
+    document.getElementsByTagName("nav")[1].getElementsByTagName("img")[index].src = document.getElementsByTagName("nav")[1].id + "/img/left.png";
     document.getElementById("slide").style.left = "200px";
     document.getElementById("slide").style.width = "100px";
     document.getElementById("slide").innerHTML = document.getElementsByTagName("nav")[0].getElementsByClassName("dropdown")[index].innerHTML;
   } else {
     for (var i = 0; i < images.length; i++) {
-      images[i].src = document.getElementsByTagName("nav")[1].id + "img/right.png";
+      images[i].src = document.getElementsByTagName("nav")[1].id + "/img/right.png";
     }
     document.getElementById("slide").style.width = "0px";
     document.getElementById("slide").style.left = "0px";
