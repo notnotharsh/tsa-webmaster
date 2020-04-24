@@ -22,15 +22,57 @@ div#content {
   left: 0px;
 }
 
-div#content * {
-  padding: 4px;
-  margin: 8px;
+div#content div * {
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
-div #title * {
+div.gen-title {
   margin: 0px;
   padding: 0px;
   text-align: center;
+}
+
+div.gen-unit-container {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 0px;
+  width: 100%;
+  height: 25%;
+}
+
+div.gen-unit {
+  height: calc(100% - 24px);
+}
+
+div.gen-unit.left img {
+  width: auto;
+  height: 100%;
+  float: left;
+}
+
+div.gen-unit.left p {
+  float: left;
+  width: auto;
+  text-align: center;
+  position: relative;
+  top: calc(50% - 1.5em);
+}
+
+div.gen-unit.right img {
+  width: auto;
+  height: 100%;
+  float: right;
+}
+
+div.gen-unit.right p {
+  float: right;
+  width: auto;
+  text-align: center;
+  position: relative;
+  top: calc(50% - 1.5em);
 }
 
 @media screen and (min-width: 1000px) {
