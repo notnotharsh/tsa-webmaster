@@ -62,6 +62,10 @@ nav.mobile img {
   transition: 0.3s;
 }
 
+.caption {
+  background-color: #222222;
+}
+
 ::-webkit-scrollbar {
     width: 6px;
 }

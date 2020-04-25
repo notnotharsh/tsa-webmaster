@@ -27,6 +27,36 @@ div#content div * {
   margin-right: 12px;
 }
 
+.home-unit {
+  text-align: center;
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.home-unit img {
+  display: none;
+}
+
+.caption-wrapper {
+  position: absolute;
+  top: 50%;
+  width: calc(100% - 24px);
+  text-align: center;
+}
+
+.caption {
+  width: 20%;
+  height: auto;
+  padding: 10px;
+  margin: 0px auto !important;
+}
+
 @media screen and (min-width: 1000px) {
   h1 {
     width: 200px;
