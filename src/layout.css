@@ -27,54 +27,6 @@ div#content div * {
   margin-right: 12px;
 }
 
-div.gen-title {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-}
-
-div.gen-unit-container {
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  padding: 0px;
-  width: 100%;
-  height: 25%;
-}
-
-div.gen-unit {
-  height: calc(100% - 24px);
-}
-
-div.gen-unit.left img {
-  width: auto;
-  height: 100%;
-  float: left;
-}
-
-div.gen-unit.left p {
-  float: left;
-  width: auto;
-  text-align: center;
-  position: relative;
-  top: calc(50% - 1.5em);
-}
-
-div.gen-unit.right img {
-  width: auto;
-  height: 100%;
-  float: right;
-}
-
-div.gen-unit.right p {
-  float: right;
-  width: auto;
-  text-align: center;
-  position: relative;
-  top: calc(50% - 1.5em);
-}
-
 @media screen and (min-width: 1000px) {
   h1 {
     width: 200px;
@@ -116,9 +68,50 @@ div.gen-unit.right p {
   .forone {
     left: calc(((((100vw - 216px) / 7 - 8px) + 104px) / 2) + 214px);
   }
+  div.gen-title {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+  div.gen-unit-container {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0px;
+    width: 100%;
+    height: 246px;
+  }
+  div.gen-unit {
+    height: calc(100% - 24px);
+  }
+  div.gen-unit.left img {
+    width: auto;
+    height: 100%;
+    float: left;
+  }
+  div.gen-unit.left p {
+    float: left;
+    width: auto;
+    text-align: center;
+    position: relative;
+    top: calc(50% - 1.5em);
+  }
+  div.gen-unit.right img {
+    width: auto;
+    height: 100%;
+    float: right;
+  }
+  div.gen-unit.right p {
+    float: right;
+    width: auto;
+    text-align: center;
+    position: relative;
+    top: calc(50% - 1.5em);
+  }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) and (min-width: 720px) {
   h1 {
     width: 200px;
   }
@@ -158,6 +151,47 @@ div.gen-unit.right p {
   }
   .forone {
     left: calc(((100vw - 216px) / 7 - 8px) + 214px);
+  }
+  div.gen-title {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+  div.gen-unit-container {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0px;
+    width: 100%;
+    height: calc((100vw - 16px)/ 4);
+  }
+  div.gen-unit {
+    height: calc(100% - 24px);
+  }
+  div.gen-unit.left img {
+    width: auto;
+    height: 100%;
+    float: left;
+  }
+  div.gen-unit.left p {
+    float: left;
+    width: auto;
+    text-align: center;
+    position: relative;
+    top: calc(50% - 1.5em);
+  }
+  div.gen-unit.right img {
+    width: auto;
+    height: 100%;
+    float: right;
+  }
+  div.gen-unit.right p {
+    float: right;
+    width: auto;
+    text-align: center;
+    position: relative;
+    top: calc(50% - 1.5em);
   }
 }
 
@@ -218,5 +252,28 @@ div.gen-unit.right p {
   }
   .dropdown {
     display: none;
+  }
+  div.gen-title {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+  div.gen-unit-container {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0px;
+    width: 100%;
+  }
+  div.gen-unit {
+    height: calc(100% - 24px);
+  }
+  div.gen-unit img {
+    width: calc(100% - 16px);
+  }
+  div.gen-unit p {
+    width: calc(100% - 16px);
+    text-align: center;
   }
 }
