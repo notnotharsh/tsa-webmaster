@@ -85,3 +85,12 @@ function slideNav(index) {
     document.getElementById("slide").innerHTML = "";
   }
 }
+
+function homeImages() {
+  var units = document.getElementsByClassName("home-unit");
+  for (var i = 0; i < units.length; i++) {
+    var source = units[i].getElementsByTagName("img")[0].src;
+    console.log(units[i]);
+    units[i].style.backgroundImage = "url(\"" + source + "\")";
+  }
+}
