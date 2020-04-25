@@ -90,7 +90,25 @@ function homeImages() {
   var units = document.getElementsByClassName("home-unit");
   for (var i = 0; i < units.length; i++) {
     var source = units[i].getElementsByTagName("img")[0].src;
-    console.log(units[i]);
     units[i].style.backgroundImage = "url(\"" + source + "\")";
+  }
+}
+
+function genText() {
+  var units = document.getElementsByClassName("gen-unit");
+  if (innerWidth > 720) {
+    for (var i = 0; i < units.length; i++) {
+      var width = getComputedStyle(units[i]).width;
+      var height = getComputedStyle(units[i]).height;
+      var textHeight = getComputedStyle(units[i].getElementsByTagName("p")[0]).height;
+      var imgWidth = getComputedStyle(units[i].getElementsByTagName("img")[0]).width;
+      console.log(height + " " + Number(textHeight.replace("px", "")) * 24 / 19);
+      units[i].getElementsByTagName("p")[0].style.width = String((Number(width.replace("px", "")) - Number(imgWidth.replace("px", "")) - 100) + "px");
+      units[i].getElementsByTagName("p")[0].style.top = String((Number(height.replace("px", "")) / 2 - Number(textHeight.replace("px", "")) * 16 / 19 - 8) + "px");
+    }
+  } else {
+    for (var i = 0; i < units.length; i++) {
+      units[i].getElementsByTagName("p")[0].style = "";
+    }
   }
 }
