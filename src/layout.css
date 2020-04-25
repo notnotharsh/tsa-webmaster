@@ -122,10 +122,8 @@ div#content div * {
   }
   div.gen-unit.left p {
     float: left;
-    width: auto;
     text-align: center;
     position: relative;
-    top: calc(50% - 1.5em);
   }
   div.gen-unit.right img {
     width: auto;
@@ -134,10 +132,8 @@ div#content div * {
   }
   div.gen-unit.right p {
     float: right;
-    width: auto;
     text-align: center;
     position: relative;
-    top: calc(50% - 1.5em);
   }
 }
 
@@ -206,10 +202,8 @@ div#content div * {
   }
   div.gen-unit.left p {
     float: left;
-    width: auto;
     text-align: center;
     position: relative;
-    top: calc(50% - 1.5em);
   }
   div.gen-unit.right img {
     width: auto;
@@ -218,10 +212,8 @@ div#content div * {
   }
   div.gen-unit.right p {
     float: right;
-    width: auto;
     text-align: center;
     position: relative;
-    top: calc(50% - 1.5em);
   }
 }
 
