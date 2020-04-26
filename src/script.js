@@ -3,6 +3,9 @@ function changeNav() {
     document.getElementsByTagName("nav")[1].style.width = "150px";
     document.getElementsByTagName("nav")[1].style.paddingLeft = "50px";
     document.getElementById("content").style.pointerEvents = "none";
+    document.getElementById("absorber").style.pointerEvents = "auto";
+    document.getElementById("absorber").style.width = "1000px";
+    document.getElementById("absorber").style.left = "200px";
   } else {
     document.getElementsByTagName("nav")[1].style.width = "0px";
     document.getElementsByTagName("nav")[1].style.paddingLeft = "0px";
@@ -10,6 +13,9 @@ function changeNav() {
     document.getElementById("slide").style.width = "0px";
     document.getElementById("slide").innerHTML = "";
     document.getElementById("content").style.pointerEvents = "auto";
+    document.getElementById("absorber").style.pointerEvents = "none";
+    document.getElementById("absorber").style.width = "0px";
+    document.getElementById("absorber").style.left = "0px";
   }
 }
 
@@ -76,6 +82,7 @@ function slideNav(index) {
     document.getElementById("slide").style.left = "200px";
     document.getElementById("slide").style.width = "100px";
     document.getElementById("slide").innerHTML = document.getElementsByTagName("nav")[0].getElementsByClassName("dropdown")[index].innerHTML;
+    document.getElementById("absorber").style.left = "300px";
   } else {
     for (var i = 0; i < images.length; i++) {
       images[i].src = document.getElementsByTagName("nav")[1].id + "/img/right.png";
@@ -83,6 +90,7 @@ function slideNav(index) {
     document.getElementById("slide").style.width = "0px";
     document.getElementById("slide").style.left = "0px";
     document.getElementById("slide").innerHTML = "";
+    document.getElementById("absorber").style.left = "200px";
   }
 }
 
