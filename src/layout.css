@@ -1,5 +1,6 @@
 body {
   margin: 0px;
+  overflow-x: hidden;
 }
 
 header * {
@@ -55,7 +56,7 @@ div#content h3 {
 }
 
 .caption {
-  width: 100%;
+  width: calc(100% - 24px);
   height: auto;
   padding: 10px;
   margin: 0px auto !important;
@@ -242,7 +243,7 @@ div#content h3 {
     left: 16px;
     width: 22px;
   }
-  nav.mobile, #slide {
+  nav.mobile, #slide, #absorber {
     position: fixed;
     height: 100vh;
     width: 0px;
