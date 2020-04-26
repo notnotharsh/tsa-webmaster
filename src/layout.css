@@ -27,6 +27,10 @@ div#content div * {
   margin-right: 12px;
 }
 
+div#content h3 {
+  font-size: 30px;
+}
+
 .home-unit {
   text-align: center;
   position: relative;
@@ -51,7 +55,7 @@ div#content div * {
 }
 
 .caption {
-  width: 20%;
+  width: 100%;
   height: auto;
   padding: 10px;
   margin: 0px auto !important;
@@ -106,9 +110,10 @@ div#content div * {
   div.gen-unit-container {
     margin-left: 0px;
     margin-right: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    padding: 0px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding: 4px 0px;
+    border-bottom: 2px solid #448844;
     width: 100%;
     height: 246px;
   }
@@ -186,9 +191,10 @@ div#content div * {
   div.gen-unit-container {
     margin-left: 0px;
     margin-right: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    padding: 0px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding: 4px 0px;
+    border-bottom: 2px solid #448844;
     width: 100%;
     height: calc((100vw - 16px)/ 4);
   }
@@ -283,8 +289,10 @@ div#content div * {
   div.gen-unit-container {
     margin-left: 0px;
     margin-right: 0px;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding: 4px 0px;
+    border-bottom: 2px solid #448844;
     padding: 0px;
     width: 100%;
   }
