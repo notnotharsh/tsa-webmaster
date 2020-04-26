@@ -68,6 +68,7 @@ input, button {
 
 div#content h3 {
   color: #FF9933;
+  font-weight: 700;
 }
 
 ::-webkit-scrollbar {
