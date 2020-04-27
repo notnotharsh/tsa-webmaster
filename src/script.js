@@ -16,6 +16,10 @@ function changeNav() {
     document.getElementById("absorber").style.pointerEvents = "none";
     document.getElementById("absorber").style.width = "0px";
     document.getElementById("absorber").style.left = "0px";
+    var images = document.getElementsByTagName("nav")[1].getElementsByTagName("img");
+    for (var i = 0; i < images.length; i++) {
+      images[i].src = document.getElementsByTagName("nav")[1].id + "/img/right.png";
+    }
   }
 }
 
