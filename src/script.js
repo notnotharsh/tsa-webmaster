@@ -109,6 +109,7 @@ function homeImages() {
 
 function genText() {
   var units = document.getElementsByClassName("gen-unit");
+  var bigbois = document.getElementsByClassName("gen-bigboi");
   if (innerWidth > 720) {
     for (var i = 0; i < units.length; i++) {
       var width = getComputedStyle(units[i]).width;
@@ -118,9 +119,22 @@ function genText() {
       units[i].getElementsByTagName("p")[0].style.width = String((Number(width.replace("px", "")) - Number(imgWidth.replace("px", "")) - 100) + "px");
       units[i].getElementsByTagName("p")[0].style.top = String((Number(height.replace("px", "")) / 2 - Number(textHeight.replace("px", "")) * 16 / 19 - 8) + "px");
     }
+    for (var i = 0; i < bigbois.length; i++) {
+      var width = getComputedStyle(bigbois[i]).width;
+      var height = getComputedStyle(bigbois[i]).height;
+      if (!bigbois[i].className.includes("central")) {
+        var textHeight = getComputedStyle(bigbois[i].getElementsByTagName("p")[0]).height;
+        var imgWidth = getComputedStyle(bigbois[i].getElementsByTagName("img")[0]).width;
+        bigbois[i].getElementsByTagName("p")[0].style.width = String((Number(width.replace("px", "")) - Number(imgWidth.replace("px", "")) - 100) + "px");
+        bigbois[i].getElementsByTagName("p")[0].style.top = String((Number(height.replace("px", "")) / 2 - Number(textHeight.replace("px", "")) * 16 / 19 - 8) + "px");
+      }
+    }
   } else {
     for (var i = 0; i < units.length; i++) {
       units[i].getElementsByTagName("p")[0].style = "";
+    }
+    for (var i = 0; i < bigbois.length; i++) {
+      bigbois[i].getElementsByTagName("p")[0].style = "";
     }
   }
 }
