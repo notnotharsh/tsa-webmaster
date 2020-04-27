@@ -271,6 +271,9 @@ div#content div * {
   .mobile {
     display: block;
   }
+  .transp {
+    display: none;
+  }
   #menuicon {
     display: block;
     text-align: left;
