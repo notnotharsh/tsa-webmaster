@@ -3,23 +3,7 @@ var authKey = "a57f6f6c-08aa-4ca1-ba65-17c19015734f";
 
 var money = 0;
 
-function getCredentials() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && (this.status == 200 || this.status == 0)) {
-      if (this.responseText != "") {
-        var authData = JSON.parse(this.responseText);
-        authName = authData.name;
-        authKey = authData.apikey;
-      }
-    }
-  };
-  xhttp.open("GET", "config.json", true);
-  xhttp.send();
-}
-
 function store() {
-  getCredentials();
   if ((document.getElementById("user").value == null || document.getElementById("user").value == "") || (document.getElementById("pass").value == null || document.getElementById("pass").value == "")) {
     document.getElementsByClassName("home-unit")[0].getElementsByTagName("h3")[0].innerHTML = "Please fill out both the username and password fields!"
   } else {
@@ -45,7 +29,6 @@ function store() {
 }
 
 function validate() {
-  getCredentials();
   if ((document.getElementById("user").value == null || document.getElementById("user").value == "") || (document.getElementById("pass").value == null || document.getElementById("pass").value == "")) {
     document.getElementsByClassName("home-unit")[0].getElementsByTagName("h3")[0].innerHTML = "Please fill out both the username and password fields!"
   } else {
@@ -131,7 +114,6 @@ function updateInfo() {
 }
 
 function process() {
-  getCredentials();
   var username = getCookie();
   var purchase = updateInfo();
   var jsonXHR = new XMLHttpRequest();
@@ -170,18 +152,7 @@ function getCookie() {
 }
 
 function money() {
-  var username = getCookie();
-  jsonXHR.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var fullJSON = JSON.parse(this.responseText);
-      console.log(fullJSON);
-      money = Number(fullJSON[username][money]);
-    }
-  };
-  jsonXHR.open("GET", "https://jsonbin.org/" + authName + "/lightwave");
-  jsonXHR.setRequestHeader("content-type", "application/json");
-  jsonXHR.setRequestHeader("authorization", "token " + authKey);
-  jsonXHR.send();
+
 }
 
 function logout() {
@@ -194,23 +165,45 @@ function logout() {
 }
 
 function registerCookieChecker() {
-  money();
-  var user = getCookie();
-    if (user != null && user != "") {
-      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Success!</h3> <p>You are logged in as " + getCookie() + " and you owe $" + money + ".</p> <button onclick=\"logout()\">Log Out</button>";
-    } else {
-      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Register</h3> <p>Username: <input type=\"text\" id=\"user\" /></p> <p>Password: <input type=\"password\" id=\"pass\" /></p> <button onclick=\"store()\">Submit</button>";
-    }
+  var username = getCookie();
+  if (username == null || username == "") {
+    document.getElementsByClassName("caption")[0].innerHTML = "<h3>Register</h3> <p>Username: <input type=\"text\" id=\"user\" /></p> <p>Password: <input type=\"password\" id=\"pass\" /></p> <button onclick=\"store()\">Submit</button>";
+  } else {
+    var jsonXHR = new XMLHttpRequest();
+    jsonXHR.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var fullJSON = JSON.parse(this.responseText);
+        money = Number(fullJSON[username]["money"]);
+        var user = getCookie();
+        document.getElementsByClassName("caption")[0].innerHTML = "<h3>Success!</h3> <p>You are logged in as " + getCookie() + " and you owe $" + money + ".</p> <button onclick=\"logout()\">Log Out</button>";
+      }
+    };
+    jsonXHR.open("GET", "https://jsonbin.org/" + authName + "/lightwave");
+    jsonXHR.setRequestHeader("content-type", "application/json");
+    jsonXHR.setRequestHeader("authorization", "token " + authKey);
+    jsonXHR.send();
+  }
 }
 
 function loginCookieChecker() {
-  money();
-  var user = getCookie();
-    if (user != null && user != "") {
-      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Success!</h3> <p>You are logged in as " + getCookie() + " and you owe $" + money + ".</p> <button onclick=\"logout()\">Log Out</button>";
-    } else {
-      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Log In</h3><p>Username: <input type=\"text\" id=\"user\" /></p><p>Password: <input type=\"password\" id=\"pass\" /></p><button onclick=\"validate()\">Submit</button>";
-    }
+  var username = getCookie();
+  if (username == null || username == "") {
+    document.getElementsByClassName("caption")[0].innerHTML = "<h3>Log In</h3><p>Username: <input type=\"text\" id=\"user\" /></p><p>Password: <input type=\"password\" id=\"pass\" /></p><button onclick=\"validate()\">Submit</button>";
+  } else {
+    var jsonXHR = new XMLHttpRequest();
+    jsonXHR.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var fullJSON = JSON.parse(this.responseText);
+        money = Number(fullJSON[username]["money"]);
+        var user = getCookie();
+        document.getElementsByClassName("caption")[0].innerHTML = "<h3>Success!</h3> <p>You are logged in as " + getCookie() + " and you owe $" + money + ".</p> <button onclick=\"logout()\">Log Out</button>";
+      }
+    };
+    jsonXHR.open("GET", "https://jsonbin.org/" + authName + "/lightwave");
+    jsonXHR.setRequestHeader("content-type", "application/json");
+    jsonXHR.setRequestHeader("authorization", "token " + authKey);
+    jsonXHR.send();
+  }
 }
 
 function shopCookieChecker() {
