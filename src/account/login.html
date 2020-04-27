@@ -10,7 +10,7 @@
     <script type="text/javascript" src="../account.js"></script>
     <title>Log In</title>
   </head>
-  <body onresize="orderNav(); genText();" onload="homeImages(); genText();">
+  <body onresize="orderNav(); genText();" onload="homeImages(); genText(); loginCookieChecker();">
     <header>
       <h1 class="mobile" id="menuicon" onclick="changeNav()">&#9776;</h1>
       <h1><a href="../index.html">Lightwave</a></h1>
@@ -55,7 +55,7 @@
             <h3>Log In</h3>
             <p>Username: <input type="text" id="user" /></p>
             <p>Password: <input type="password" id="pass" /></p>
-            <button onclick="validate()">Submit</button>
+            <button id="submit" onclick="validate()">Submit</button>
           </div>
         </div>
       </div>

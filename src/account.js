@@ -18,24 +18,58 @@ function getCredentials() {
 
 function store() {
   getCredentials();
-  var username = document.getElementById("user").value;
-  var password = document.getElementById("pass").value;
-  var jsonXHR = new XMLHttpRequest();
-  jsonXHR.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var fullJSON = JSON.parse(this.responseText);
-      var names = Object.keys(fullJSON);
-      if (names.includes(username)) {
-        document.getElementsByClassName("home-unit")[0].getElementsByTagName("h3")[0].innerHTML = "Sorry, that username is either invalid or taken."
-      } else {
-        newUser(username, password, fullJSON);
+  if ((document.getElementById("user").value == null || document.getElementById("user").value == "") || (document.getElementById("pass").value == null || document.getElementById("pass").value == "")) {
+    document.getElementsByClassName("home-unit")[0].getElementsByTagName("h3")[0].innerHTML = "Please fill out both the username and password fields!"
+  } else {
+    var username = document.getElementById("user").value;
+    var password = document.getElementById("pass").value;
+    var jsonXHR = new XMLHttpRequest();
+    jsonXHR.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var fullJSON = JSON.parse(this.responseText);
+        var names = Object.keys(fullJSON);
+        if (names.includes(username)) {
+          document.getElementsByClassName("home-unit")[0].getElementsByTagName("h3")[0].innerHTML = "Sorry, that username is either invalid or taken."
+        } else {
+          newUser(username, password, fullJSON);
+        }
       }
-    }
-  };
-  jsonXHR.open("GET", "https://jsonbin.org/" + authName + "/lightwave");
-  jsonXHR.setRequestHeader("content-type", "application/json");
-  jsonXHR.setRequestHeader("authorization", "token " + authKey);
-  jsonXHR.send();
+    };
+    jsonXHR.open("GET", "https://jsonbin.org/" + authName + "/lightwave");
+    jsonXHR.setRequestHeader("content-type", "application/json");
+    jsonXHR.setRequestHeader("authorization", "token " + authKey);
+    jsonXHR.send();
+  }
+}
+
+function validate() {
+  getCredentials();
+  if ((document.getElementById("user").value == null || document.getElementById("user").value == "") || (document.getElementById("pass").value == null || document.getElementById("pass").value == "")) {
+    document.getElementsByClassName("home-unit")[0].getElementsByTagName("h3")[0].innerHTML = "Please fill out both the username and password fields!"
+  } else {
+    var username = document.getElementById("user").value;
+    var password = document.getElementById("pass").value;
+    var jsonXHR = new XMLHttpRequest();
+    jsonXHR.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var fullJSON = JSON.parse(this.responseText);
+        var names = Object.keys(fullJSON);
+        if (names.includes(username) && fullJSON[username]["password"] == password) {
+          var d = new Date();
+          d.setTime(d.getTime() + (36524 * 24 * 60 * 60 * 1000));
+          var expires = ";expires=" + d.toUTCString();
+          document.cookie = "username=" + username + expires + ";path=/";
+          loginCookieChecker();
+        } else {
+          document.getElementsByClassName("home-unit")[0].getElementsByTagName("h3")[0].innerHTML = "Sorry, that username-password combination doesn't seem to exist."
+        }
+      }
+    };
+    jsonXHR.open("GET", "https://jsonbin.org/" + authName + "/lightwave");
+    jsonXHR.setRequestHeader("content-type", "application/json");
+    jsonXHR.setRequestHeader("authorization", "token " + authKey);
+    jsonXHR.send();
+  }
 }
 
 function newUser(username, password, fullJSON) {
@@ -67,14 +101,25 @@ function logout() {
   document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   if (location.href.includes("register.html")) {
     registerCookieChecker();
+  } else if (location.href.includes("login.html")) {
+    loginCookieChecker();
   }
 }
 
 function registerCookieChecker() {
   var user = getCookie();
     if (user != null && user != "") {
-      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Registered!</h3> <p>You are logged in as " + getCookie() + ".</p> <button onclick=\"logout()\">Log out</button>";
+      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Success!</h3> <p>You are logged in as " + getCookie() + ".</p> <button onclick=\"logout()\">Log Out</button>";
     } else {
       document.getElementsByClassName("caption")[0].innerHTML = "<h3>Register</h3> <p>Username: <input type=\"text\" id=\"user\" /></p> <p>Password: <input type=\"password\" id=\"pass\" /></p> <button onclick=\"store()\">Submit</button>";
+    }
+}
+
+function loginCookieChecker() {
+  var user = getCookie();
+    if (user != null && user != "") {
+      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Success!</h3> <p>You are logged in as " + getCookie() + ".</p> <button onclick=\"logout()\">Log Out</button>";
+    } else {
+      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Log In</h3><p>Username: <input type=\"text\" id=\"user\" /></p><p>Password: <input type=\"password\" id=\"pass\" /></p><button onclick=\"validate()\">Submit</button>";
     }
 }
