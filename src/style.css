@@ -71,6 +71,14 @@ div#content h3 {
   font-weight: 700;
 }
 
+.gen-unit-header {
+  font-size: 30px;
+}
+
+.home-unit h3 {
+  font-size: 45px;
+}
+
 ::-webkit-scrollbar {
     width: 6px;
 }
