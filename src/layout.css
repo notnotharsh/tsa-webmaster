@@ -239,6 +239,10 @@ div#content div * {
     height: 50% !important;
     margin-top: calc((100vw - 16px) / 6);
   }
+  #shopimg {
+    height: 25% !important;
+    margin-top: calc((100vw - 16px) / 4);
+  }
   div.gen-bigboi-container {
     margin: 0px;
     padding: 32px 0px;
