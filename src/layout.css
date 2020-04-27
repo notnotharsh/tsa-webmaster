@@ -58,6 +58,12 @@ div#content div * {
   margin: 0px auto !important;
 }
 
+#form {
+  position: absolute;
+  left: calc(50% - 250px);
+  max-width: 500px;
+}
+
 @media screen and (min-width: 1000px) {
   h1 {
     width: 200px;
@@ -353,5 +359,10 @@ div#content div * {
   div.gen-unit p, div.gen-bigboi p {
     width: calc(100% - 16px);
     text-align: center;
+  }
+  #form {
+    position: absolute;
+    left: calc(10%);
+    max-width: 85%;
   }
 }

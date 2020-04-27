@@ -122,7 +122,40 @@ function updateInfo() {
     price += 5000;
   }
   document.getElementById("price").innerHTML = price;
-  document.getElementsByClassName("gen-bigboi")[0].getElementsByTagName("img")[0].src = "../img/gifs/" + color + car + "Gif.gif" 
+  document.getElementById("carimg").src = "../img/gifs/" + color + car + "Gif.gif"
+  var newPurchase = {"car": {"name": car, "color": color, "battery": battery, "autopilot": autopilot}, "price": price};
+  return newPurchase;
+}
+
+function process() {
+  getCredentials();
+  var username = getCookie();
+  var purchase = updateInfo();
+  var jsonXHR = new XMLHttpRequest();
+  jsonXHR.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var fullJSON = JSON.parse(this.responseText);
+      var thisUser = fullJSON[username];
+      thisUser.money = String(Number(thisUser.money) + purchase.price);
+      thisUser.car.push(purchase.car);
+      fullJSON[username] = thisUser;
+      var JSONString = JSON.stringify(fullJSON);
+      var postXHR = new XMLHttpRequest();
+      postXHR.onreadystatechange = function() {
+        if (this.readyState == 4 && (this.status >= 200 && this.status < 300)) {
+          shopCookieChecker();
+        }
+      };
+      postXHR.open("POST", "https://jsonbin.org/" + authName + "/lightwave");
+      postXHR.setRequestHeader("content-type", "application/json");
+      postXHR.setRequestHeader("authorization", "token " + authKey);
+      postXHR.send(JSONString);
+    }
+  };
+  jsonXHR.open("GET", "https://jsonbin.org/" + authName + "/lightwave");
+  jsonXHR.setRequestHeader("content-type", "application/json");
+  jsonXHR.setRequestHeader("authorization", "token " + authKey);
+  jsonXHR.send();
 }
 
 function getCookie() {
@@ -153,5 +186,14 @@ function loginCookieChecker() {
       document.getElementsByClassName("caption")[0].innerHTML = "<h3>Success!</h3> <p>You are logged in as " + getCookie() + ".</p> <button onclick=\"logout()\">Log Out</button>";
     } else {
       document.getElementsByClassName("caption")[0].innerHTML = "<h3>Log In</h3><p>Username: <input type=\"text\" id=\"user\" /></p><p>Password: <input type=\"password\" id=\"pass\" /></p><button onclick=\"validate()\">Submit</button>";
+    }
+}
+
+function shopCookieChecker() {
+  var user = getCookie();
+    if (user != null && user != "") {
+      document.getElementById("content")[0].innerHTML = "<div class=\"home-unit\"> <img src=\"../img/shop/shop.jpg\" /> <div class=\"caption-wrapper\"> <div class=\"caption\"> <h3>Shop</h3> <p>Scroll down to buy!</p> </div> </div> </div> <div class=\"gen-unit-container\" style=\"min-height: 150px;\"> <div class=\"gen-unit right\"> <img src=\"../img/transparent.png\" class=\"transp\" /> <div style=\"position: absolute; left: calc(50% - 250px)\"> <p></p> <div style=\"float: left;\"> <input type=\"radio\" id=\"Alpine\" name=\"car\" onchange=\"updateInfo()\" checked=\"checked\" />Alpine<br /> <input type=\"radio\" id=\"Boulder\" name=\"car\" onchange=\"updateInfo()\" />Boulder<br /> <input type=\"radio\" id=\"Dune\" name=\"car\" onchange=\"updateInfo()\" />Dune<br /> <input type=\"radio\" id=\"Neptune\" name=\"car\" onchange=\"updateInfo()\" />Neptune<br /> <input type=\"radio\" id=\"Taiga\" name=\"car\" onchange=\"updateInfo()\" />Taiga<br /> </div> <div style=\"float: left;\"> <input type=\"radio\" id=\"baige\" name=\"color\" onchange=\"updateInfo()\" checked=\"checked\" />Beige<br /> <input type=\"radio\" id=\"grey\" name=\"color\" onchange=\"updateInfo()\" />Grey<br /> <input type=\"radio\" id=\"red\" name=\"color\" onchange=\"updateInfo()\" />Red<br /> <input type=\"radio\" id=\"white\" name=\"color\" onchange=\"updateInfo()\" />White<br /> </div> <div style=\"float: left;\"> <input type=\"radio\" id=\"400\" name=\"battery\" onchange=\"updateInfo()\" checked=\"checked\" />400 miles<br /> <input type=\"radio\" id=\"500\" name=\"battery\" onchange=\"updateInfo()\" />500 miles<br /> <input type=\"radio\" id=\"800\" name=\"battery\" onchange=\"updateInfo()\" />800 miles<br /> </div> <div style=\"float: left;\"> <input type=\"checkbox\" id=\"autopilot\" onchange=\"updateInfo()\" />Autopilot<br /> <button id=\"submit\" onclick=\"process()\">Submit</button> </div> </div> </div> </div> <div class=\"gen-bigboi-container\"> <div class=\"gen-bigboi left\"> <img src=\"../img/gifs/baigeAlpineGif.gif\" id=\"shopimg\"/> <p><span class=\"gen-unit-header\">Price: $<span id=\"price\" style=\"margin: 0px;\"></span></span></p> </div> </div>";
+    } else {
+      document.getElementById("content").innerHTML = "<div class=\"home-unit\"> <img src=\"../img/shop/shop.jpg\" /> <div class=\"caption-wrapper\"> <div class=\"caption\"> <h3>You can't shop unless you're logged in!</h3> <p>You need to be logged in to shop.";
     }
 }
