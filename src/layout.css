@@ -114,27 +114,27 @@ div#content div * {
   div.gen-unit {
     height: 100%;
   }
-  div.gen-unit.left img {
+  #content .left img {
     width: auto;
     height: 100%;
     float: left;
   }
-  div.gen-unit.left p {
+  #content .left p {
     float: left;
     text-align: center;
     position: relative;
   }
-  div.gen-unit.right img {
+  #content .right img {
     width: auto;
     height: 100%;
     float: right;
   }
-  div.gen-unit.right p {
+  #content .right p {
     float: right;
     text-align: center;
     position: relative;
   }
-  div.gen-central-container {
+  div.gen-bigboi-container {
     margin: 0px;
     padding: 32px 0px;
     border-bottom: 2px solid #448844;
@@ -142,12 +142,16 @@ div#content div * {
     height: 492px;
     text-align: center;
   }
-  div.gen-central {
+  div.gen-bigboi {
     height: 100%;
   }
-  div.gen-central iframe, div.gen-central img {
-    height: calc(100% - 80px);
-    width: calc((492px - 80px) * 19 / 16)
+  div.gen-bigboi.central iframe {
+    height: 412px;
+    width: 490px;
+  }
+  div.gen-bigboi.central img {
+    width: auto;
+    height: 412px;
   }
 }
 
@@ -207,27 +211,27 @@ div#content div * {
   div.gen-unit {
     height: 100%;
   }
-  div.gen-unit.left img {
+  #content .left img {
     width: auto;
     height: 100%;
     float: left;
   }
-  div.gen-unit.left p {
+  #content .left p {
     float: left;
     text-align: center;
     position: relative;
   }
-  div.gen-unit.right img {
+  #content .right img {
     width: auto;
     height: 100%;
     float: right;
   }
-  div.gen-unit.right p {
+  #content .right p {
     float: right;
     text-align: center;
     position: relative;
   }
-  div.gen-central-container {
+  div.gen-bigboi-container {
     margin: 0px;
     padding: 32px 0px;
     border-bottom: 2px solid #448844;
@@ -235,12 +239,16 @@ div#content div * {
     height: calc((100vw - 16px) / 2);
     text-align: center;
   }
-  div.gen-central {
+  div.gen-bigboi {
     height: 100%;
   }
-  div.gen-central iframe, div.gen-central img {
+  div.gen-bigboi.central iframe {
     height: calc(100% - 80px);
-    width: calc(((100vw - 16px) / 2 - 80px) * 19 / 16)
+    width: calc(((100vw - 16px) / 2 - 80px) * 19 / 16);
+  }
+  div.gen-bigboi.central img {
+    width: auto;
+    height: calc(100% - 80px);
   }
 }
 
@@ -307,7 +315,7 @@ div#content div * {
     padding: 0px;
     text-align: center;
   }
-  div.gen-unit-container {
+  div.gen-unit-container, div.gen-bigboi-container {
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 32px;
@@ -317,13 +325,17 @@ div#content div * {
     padding: 0px;
     width: 100%;
   }
-  div.gen-unit {
+  div.gen-unit, div.gen-bigboi {
     height: calc(100% - 24px);
   }
-  div.gen-unit img {
+  div.gen-unit img, div.gen-bigboi img, div.gen-bigboi iframe {
     width: calc(100% - 16px);
   }
-  div.gen-unit p {
+  div.gen-bigboi iframe {
+    min-height: calc((100vw - 22px) * 16 / 19);
+    padding-bottom: 24px;
+  }
+  div.gen-unit p, div.gen-bigboi p {
     width: calc(100% - 16px);
     text-align: center;
   }
