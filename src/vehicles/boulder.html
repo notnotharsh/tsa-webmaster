@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../layout.css" />
+    <script type="text/javascript" src="../script.js"></script>
+    <title>Boulder</title>
+  </head>
+  <body onresize="orderNav(); genText();" onload="homeImages(); genText(); orderNav();">
+    <header>
+      <h1 class="mobile" id="menuicon" onclick="changeNav()">&#9776;</h1>
+      <h1><a href="../index.html">Lightwave</a></h1>
+      <nav>
+        <a href ="../vehicles/index.html" class="left dropdowner" onmouseover="dropdown(0)">Vehicles</a>
+        <a href ="../charging/index.html" class="left dropdowner" onmouseover="dropdown(1)">Charging</a>
+        <a href="../mission/index.html" class="left">Mission</a>
+        <a href="../news/index.html" class="left">News</a>
+        <a href="../account/register.html" class="right">Register</a>
+        <a href="../account/login.html" class="right">Log In</a>
+        <a href="../shop/index.html" class="right">Shop</a>
+        <div class="dropdown forzero">
+          <a href="../vehicles/alpine.html">Alpine</a>
+          <a href="../vehicles/boulder.html">Boulder</a>
+          <a href="../vehicles/dune.html">Dune</a>
+          <a href="../vehicles/neptune.html">Neptune</a>
+          <a href="../vehicles/taiga.html">Taiga</a>
+        </div>
+        <div class="dropdown forone">
+          <a href="../charging/chargers.html">Chargers</a>
+          <a href="../charging/map.html">Map</a>
+        </div>
+      </nav>
+      <nav class="mobile" id="..">
+        <div id="slide"></div>
+        <div id="absorber" onclick="changeNav()"></div>
+        <h2>Go to...</h2>
+        <div><a href="../vehicles/index.html">Vehicles</a><img src="../img/right.png" onclick="slideNav(0)" /></div>
+        <div><a href="../charging/index.html">Charging</a><img src="../img/right.png" onclick="slideNav(1)" /></div>
+        <div><a href="../mission/index.html">Mission</a></div>
+        <div><a href="../news/index.html">News</a></div>
+        <div><a href="../shop/index.html">Shop</a></div>
+        <div><a href="../account/login.html">Log In</a></div>
+        <div><a href="../account/register.html">Register</a></div>
+      </nav>
+    </header>
+    <div id="content">
+      <div class="home-unit">
+        <img src="../img/carPhotoshop/boulderMain2.png" />
+          <div class="caption-wrapper">
+            <div class="caption">
+              <h3>Introducing Boulder</h3>
+            </div>
+          </div>
+      </div>
+      <div class="gen-unit-container">
+        <div class="gen-unit right">
+          <img src="../img/carPhotoshop/batterySemi.PNG" />
+          <p><span class="gen-unit-header">Boulders Revolutionary Battery and Motor</span><br /><br />Boulder holds the largest battery ever put in a
+            vehicle that allows Boulder to get up to 800 miles of range and 2,750 Newton Metres of Torque.</p>
+        </div>
+      </div>
+      <div class="gen-bigboi-container">
+      <div class="gen-bigboi central">
+          <p><span class="gen-unit-header">What Chester Thinks About Boulder</span></p>
+          <iframe src="https://www.youtube.com/embed/I3U2p-G9p_k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="gen-bigboi-container">
+        <div class="gen-bigboi right">
+          <img src="../img/carPhotoshop/semitruckred.png" />
+            <p><span class= "gen-unit-header">Boulder Specs</span>
+            <br/>
+            <br />Base Price: $87,500
+            <br />Base Range: 400 miles
+            <br />HorsePower: 725 Horses
+            <br /> Torque: 2750 Newton Metres
+            <br /> Top Speed: 113 mph
+            <br /> 0-60mph: 8.6 sec
+            <br /> Seats: 2
+            <br /> >Wheel Diamter: 24.5 in
+            <br /> Wheels: 18
+            <br /> Weight: 4.3k lbs
+            <br /> Width: 79.5in
+            <br /> Length: 649.5 in
+            <br /> Height: 98.3 in
+            <br/> Standard Automation: Automatic Braking</p>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
