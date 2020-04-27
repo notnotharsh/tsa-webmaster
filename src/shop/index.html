@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../layout.css" />
     <script type="text/javascript" src="../script.js"></script>
+    <script type="text/javascript" src="../account.js"></script>
     <title>Shop</title>
   </head>
-  <body onresize="orderNav(); genText();" onload="homeImages(); genText(); orderNav();">
+  <body onresize="orderNav(); genText();" onload="homeImages(); genText(); orderNav(); shopCookieChecker()">
     <header>
       <h1 class="mobile" id="menuicon" onclick="changeNav()">&#9776;</h1>
       <h1><a href="../index.html">Lightwave</a></h1>
@@ -55,20 +56,40 @@
           </div>
         </div>
       </div>
-      <div class="gen-unit-container">
+      <div class="gen-unit-container" style="min-height: 150px;">
         <div class="gen-unit right">
-          <img src="../img/transparent.png" />
-          <p>
-            <input type="radio" id="400" name="battery" />400 miles<br />
-            <input type="radio" id="500" name="battery" />500 miles<br />
-            <input type="radio" id="800" name="battery" />800 miles<br />
-          </p>
+          <img src="../img/transparent.png" class="transp" />
+          <div style="position: absolute; left: calc(50% - 250px)">
+            <p></p>
+            <div style="float: left;">
+              <input type="radio" id="Alpine" name="car" onchange="updateInfo()" checked="checked" />Alpine<br />
+              <input type="radio" id="Boulder" name="car" onchange="updateInfo()" />Boulder<br />
+              <input type="radio" id="Dune" name="car" onchange="updateInfo()" />Dune<br />
+              <input type="radio" id="Neptune" name="car" onchange="updateInfo()" />Neptune<br />
+              <input type="radio" id="Taiga" name="car" onchange="updateInfo()" />Taiga<br />
+            </div>
+            <div style="float: left;">
+              <input type="radio" id="baige" name="color" onchange="updateInfo()" checked="checked" />Beige<br />
+              <input type="radio" id="grey" name="color" onchange="updateInfo()" />Grey<br />
+              <input type="radio" id="red" name="color" onchange="updateInfo()" />Red<br />
+              <input type="radio" id="white" name="color" onchange="updateInfo()" />White<br />
+            </div>
+            <div style="float: left;">
+              <input type="radio" id="400" name="battery" onchange="updateInfo()" checked="checked" />400 miles<br />
+              <input type="radio" id="500" name="battery" onchange="updateInfo()" />500 miles<br />
+              <input type="radio" id="800" name="battery" onchange="updateInfo()" />800 miles<br />
+            </div>
+            <div style="float: left;">
+              <input type="checkbox" id="autopilot" onchange="updateInfo()" />Autopilot<br />
+              <button id="submit" onclick="process()">Submit</button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="gen-bigboi-container">
         <div class="gen-bigboi left">
           <img src="../img/gifs/baigeAlpineGif.gif" />
-          <p>Price: <span id="price"></span></p>
+          <p><span class="gen-unit-header">Price: $<span id="price" style="margin: 0px;"></span></span></p>
         </div>
       </div>
     </div>

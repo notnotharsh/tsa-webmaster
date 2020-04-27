@@ -92,6 +92,38 @@ function newUser(username, password, fullJSON) {
   postXHR.send(JSONString);
 }
 
+function updateInfo() {
+  var carPrices = [29500, 87500, 26500, 97500, 27500];
+  var batteryPrices = [18000, 22500, 36000];
+  var price = 0;
+  var car;
+  var color;
+  var battery;
+  var autopilot;
+  var options = document.getElementsByTagName("input");
+  for (var i = 0; i < 5; i++) {
+    if (options[i].checked == true) {
+      car = options[i].id;
+      price += carPrices[i];
+    }
+  }
+  for (var i = 5; i < 9; i++) {
+    if (options[i].checked == true) {
+      color = options[i].id;
+    }
+  }
+  for (var i = 9; i < 12; i++) {
+    if (options[i].checked == true) {
+      battery = options[i].id;
+      price += batteryPrices[i - 9];
+    }
+  }
+  if (options[12].checked == true) {
+    price += 5000;
+  }
+  document.getElementById("price").innerHTML = price;
+  document.getElementsByClassName("gen-bigboi")[0].getElementsByTagName("img")[0].src = "../img/gifs/" + color + car + "Gif.gif" 
+}
 
 function getCookie() {
   return document.cookie.split("=")[1];
