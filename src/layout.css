@@ -134,6 +134,21 @@ div#content div * {
     text-align: center;
     position: relative;
   }
+  div.gen-central-container {
+    margin: 0px;
+    padding: 32px 0px;
+    border-bottom: 2px solid #448844;
+    width: 100%;
+    height: 492px;
+    text-align: center;
+  }
+  div.gen-central {
+    height: 100%;
+  }
+  div.gen-central iframe, div.gen-central img {
+    height: calc(100% - 80px);
+    width: calc((492px - 80px) * 19 / 16)
+  }
 }
 
 @media screen and (max-width: 1000px) and (min-width: 720px) {
@@ -187,7 +202,7 @@ div#content div * {
     padding: 32px 0px;
     border-bottom: 2px solid #448844;
     width: 100%;
-    height: calc((100vw - 16px)/ 4);
+    height: calc((100vw - 16px) / 4);
   }
   div.gen-unit {
     height: 100%;
@@ -211,6 +226,21 @@ div#content div * {
     float: right;
     text-align: center;
     position: relative;
+  }
+  div.gen-central-container {
+    margin: 0px;
+    padding: 32px 0px;
+    border-bottom: 2px solid #448844;
+    width: 100%;
+    height: calc((100vw - 16px) / 2);
+    text-align: center;
+  }
+  div.gen-central {
+    height: 100%;
+  }
+  div.gen-central iframe, div.gen-central img {
+    height: calc(100% - 80px);
+    width: calc(((100vw - 16px) / 2 - 80px) * 19 / 16)
   }
 }
 
