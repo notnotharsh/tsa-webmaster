@@ -1,6 +1,8 @@
 var authName = "notnotharsh";
 var authKey = "a57f6f6c-08aa-4ca1-ba65-17c19015734f";
 
+var money = 0;
+
 function getCredentials() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -53,6 +55,7 @@ function validate() {
     jsonXHR.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var fullJSON = JSON.parse(this.responseText);
+        console.log(fullJSON);
         var names = Object.keys(fullJSON);
         if (names.includes(username) && fullJSON[username]["password"] == password) {
           var d = new Date();
@@ -137,7 +140,11 @@ function process() {
       var fullJSON = JSON.parse(this.responseText);
       var thisUser = fullJSON[username];
       thisUser.money = String(Number(thisUser.money) + purchase.price);
-      thisUser.car.push(purchase.car);
+      if (thisUser.car == null) {
+        thisUser.car = [purchase.car];
+      } else {
+        thisUser.car.push(purchase.car);
+      }
       fullJSON[username] = thisUser;
       var JSONString = JSON.stringify(fullJSON);
       var postXHR = new XMLHttpRequest();
@@ -162,6 +169,21 @@ function getCookie() {
   return document.cookie.split("=")[1];
 }
 
+function money() {
+  var username = getCookie();
+  jsonXHR.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var fullJSON = JSON.parse(this.responseText);
+      console.log(fullJSON);
+      money = Number(fullJSON[username][money]);
+    }
+  };
+  jsonXHR.open("GET", "https://jsonbin.org/" + authName + "/lightwave");
+  jsonXHR.setRequestHeader("content-type", "application/json");
+  jsonXHR.setRequestHeader("authorization", "token " + authKey);
+  jsonXHR.send();
+}
+
 function logout() {
   document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   if (location.href.includes("register.html")) {
@@ -172,18 +194,20 @@ function logout() {
 }
 
 function registerCookieChecker() {
+  money();
   var user = getCookie();
     if (user != null && user != "") {
-      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Success!</h3> <p>You are logged in as " + getCookie() + ".</p> <button onclick=\"logout()\">Log Out</button>";
+      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Success!</h3> <p>You are logged in as " + getCookie() + " and you owe $" + money + ".</p> <button onclick=\"logout()\">Log Out</button>";
     } else {
       document.getElementsByClassName("caption")[0].innerHTML = "<h3>Register</h3> <p>Username: <input type=\"text\" id=\"user\" /></p> <p>Password: <input type=\"password\" id=\"pass\" /></p> <button onclick=\"store()\">Submit</button>";
     }
 }
 
 function loginCookieChecker() {
+  money();
   var user = getCookie();
     if (user != null && user != "") {
-      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Success!</h3> <p>You are logged in as " + getCookie() + ".</p> <button onclick=\"logout()\">Log Out</button>";
+      document.getElementsByClassName("caption")[0].innerHTML = "<h3>Success!</h3> <p>You are logged in as " + getCookie() + " and you owe $" + money + ".</p> <button onclick=\"logout()\">Log Out</button>";
     } else {
       document.getElementsByClassName("caption")[0].innerHTML = "<h3>Log In</h3><p>Username: <input type=\"text\" id=\"user\" /></p><p>Password: <input type=\"password\" id=\"pass\" /></p><button onclick=\"validate()\">Submit</button>";
     }
@@ -192,7 +216,7 @@ function loginCookieChecker() {
 function shopCookieChecker() {
   var user = getCookie();
     if (user != null && user != "") {
-      document.getElementById("content")[0].innerHTML = "<div class=\"home-unit\"> <img src=\"../img/shop/shop.jpg\" /> <div class=\"caption-wrapper\"> <div class=\"caption\"> <h3>Shop</h3> <p>Scroll down to buy!</p> </div> </div> </div> <div class=\"gen-unit-container\" style=\"min-height: 150px;\"> <div class=\"gen-unit right\"> <img src=\"../img/transparent.png\" class=\"transp\" /> <div style=\"position: absolute; left: calc(50% - 250px)\"> <p></p> <div style=\"float: left;\"> <input type=\"radio\" id=\"Alpine\" name=\"car\" onchange=\"updateInfo()\" checked=\"checked\" />Alpine<br /> <input type=\"radio\" id=\"Boulder\" name=\"car\" onchange=\"updateInfo()\" />Boulder<br /> <input type=\"radio\" id=\"Dune\" name=\"car\" onchange=\"updateInfo()\" />Dune<br /> <input type=\"radio\" id=\"Neptune\" name=\"car\" onchange=\"updateInfo()\" />Neptune<br /> <input type=\"radio\" id=\"Taiga\" name=\"car\" onchange=\"updateInfo()\" />Taiga<br /> </div> <div style=\"float: left;\"> <input type=\"radio\" id=\"baige\" name=\"color\" onchange=\"updateInfo()\" checked=\"checked\" />Beige<br /> <input type=\"radio\" id=\"grey\" name=\"color\" onchange=\"updateInfo()\" />Grey<br /> <input type=\"radio\" id=\"red\" name=\"color\" onchange=\"updateInfo()\" />Red<br /> <input type=\"radio\" id=\"white\" name=\"color\" onchange=\"updateInfo()\" />White<br /> </div> <div style=\"float: left;\"> <input type=\"radio\" id=\"400\" name=\"battery\" onchange=\"updateInfo()\" checked=\"checked\" />400 miles<br /> <input type=\"radio\" id=\"500\" name=\"battery\" onchange=\"updateInfo()\" />500 miles<br /> <input type=\"radio\" id=\"800\" name=\"battery\" onchange=\"updateInfo()\" />800 miles<br /> </div> <div style=\"float: left;\"> <input type=\"checkbox\" id=\"autopilot\" onchange=\"updateInfo()\" />Autopilot<br /> <button id=\"submit\" onclick=\"process()\">Submit</button> </div> </div> </div> </div> <div class=\"gen-bigboi-container\"> <div class=\"gen-bigboi left\"> <img src=\"../img/gifs/baigeAlpineGif.gif\" id=\"shopimg\"/> <p><span class=\"gen-unit-header\">Price: $<span id=\"price\" style=\"margin: 0px;\"></span></span></p> </div> </div>";
+      document.getElementById("content").innerHTML = "<div class=\"home-unit\"> <img src=\"../img/shop/shop.jpg\" /> <div class=\"caption-wrapper\"> <div class=\"caption\"> <h3>Shop</h3> <p>Scroll down to buy!</p> </div> </div> </div> <div class=\"gen-unit-container\" style=\"min-height: 150px;\"> <div class=\"gen-unit right\"> <img src=\"../img/transparent.png\" class=\"transp\" /> <div style=\"position: absolute; left: calc(50% - 250px)\"> <p></p> <div style=\"float: left;\"> <input type=\"radio\" id=\"Alpine\" name=\"car\" onchange=\"updateInfo()\" checked=\"checked\" />Alpine<br /> <input type=\"radio\" id=\"Boulder\" name=\"car\" onchange=\"updateInfo()\" />Boulder<br /> <input type=\"radio\" id=\"Dune\" name=\"car\" onchange=\"updateInfo()\" />Dune<br /> <input type=\"radio\" id=\"Neptune\" name=\"car\" onchange=\"updateInfo()\" />Neptune<br /> <input type=\"radio\" id=\"Taiga\" name=\"car\" onchange=\"updateInfo()\" />Taiga<br /> </div> <div style=\"float: left;\"> <input type=\"radio\" id=\"baige\" name=\"color\" onchange=\"updateInfo()\" checked=\"checked\" />Beige<br /> <input type=\"radio\" id=\"grey\" name=\"color\" onchange=\"updateInfo()\" />Grey<br /> <input type=\"radio\" id=\"red\" name=\"color\" onchange=\"updateInfo()\" />Red<br /> <input type=\"radio\" id=\"white\" name=\"color\" onchange=\"updateInfo()\" />White<br /> </div> <div style=\"float: left;\"> <input type=\"radio\" id=\"400\" name=\"battery\" onchange=\"updateInfo()\" checked=\"checked\" />400 miles<br /> <input type=\"radio\" id=\"500\" name=\"battery\" onchange=\"updateInfo()\" />500 miles<br /> <input type=\"radio\" id=\"800\" name=\"battery\" onchange=\"updateInfo()\" />800 miles<br /> </div> <div style=\"float: left;\"> <input type=\"checkbox\" id=\"autopilot\" onchange=\"updateInfo()\" />Autopilot<br /> <button id=\"submit\" onclick=\"process()\">Submit</button> </div> </div> </div> </div> <div class=\"gen-bigboi-container\"> <div class=\"gen-bigboi left\"> <img src=\"../img/gifs/baigeAlpineGif.gif\" id=\"shopimg\"/> <p><span class=\"gen-unit-header\">Price: $<span id=\"price\" style=\"margin: 0px;\"></span></span></p> </div> </div>";
     } else {
       document.getElementById("content").innerHTML = "<div class=\"home-unit\"> <img src=\"../img/shop/shop.jpg\" /> <div class=\"caption-wrapper\"> <div class=\"caption\"> <h3>You can't shop unless you're logged in!</h3> <p>You need to be logged in to shop.";
     }
